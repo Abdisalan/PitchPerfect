@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="YkM-zo-FcJ">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Record Sounds View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Pitch_Perfect" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="RecordSoundsViewController" customModule="Pitch_Perfect" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -23,9 +23,9 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oSV-Sx-4Yh">
-                                <rect key="frame" x="247" y="387" width="106" height="30"/>
-                                <state key="normal" title="Stop Recording"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oSV-Sx-4Yh">
+                                <rect key="frame" x="275" y="387" width="50" height="50"/>
+                                <state key="normal" image="StopImage"/>
                                 <connections>
                                     <action selector="stopRecording:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ckJ-MT-nd2"/>
                                 </connections>
@@ -48,16 +48,57 @@
                             <constraint firstItem="0WV-xv-WXj" firstAttribute="top" secondItem="A92-fc-987" secondAttribute="bottom" constant="8" id="twC-cH-ysG"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="HOS-v7-rNt"/>
                     <connections>
                         <outlet property="recordingLabel" destination="0WV-xv-WXj" id="DvN-4R-mZP"/>
+                        <outlet property="startRecording" destination="A92-fc-987" id="w3A-Gl-wDP"/>
+                        <outlet property="stopRecording" destination="oSV-Sx-4Yh" id="EVQ-Mf-WPu"/>
+                        <segue destination="rFl-Oc-bId" kind="show" identifier="stopRecording" id="6rc-bf-vps"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1287" y="205"/>
+        </scene>
+        <!--Play Sounds View Controller-->
+        <scene sceneID="Jb9-KB-Vn6">
+            <objects>
+                <viewController id="rFl-Oc-bId" customClass="PlaySoundsViewController" customModule="Pitch_Perfect" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="68h-xC-Zkb"/>
+                        <viewControllerLayoutGuide type="bottom" id="bM3-N3-CIv"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="OsE-Az-LdH">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ejB-Iw-Dys" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1995" y="205"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="cD7-ZY-pHX">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="YkM-zo-FcJ" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ZYY-GN-5Q5">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="xKK-pH-jMo"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xgd-Se-Vdz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="475" y="205"/>
         </scene>
     </scenes>
     <resources>
+        <image name="StopImage" width="50" height="50"/>
         <image name="recordImage" width="100" height="100"/>
     </resources>
 </document>
